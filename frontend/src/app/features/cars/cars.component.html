@@ -1,0 +1,96 @@
+
+<section class="cars-page">
+  <header class="collection-header">
+    <div class="header-copy">
+      <span class="eyebrow">REMEH • CLASSIC AUTOMOBILES</span>
+      <h1>Find Your <span>Classic.</span></h1>
+      <p>
+        Timeless machines. Unforgettable journeys.
+        Choose a classic for your next escape.
+      </p>
+    </div>
+
+    <div class="collection-count">
+      <strong>{{ cars.length.toString().padStart(2, '0') }}</strong>
+      <span>CLASSIC CARS</span>
+    </div>
+  </header>
+
+  <div class="collection-toolbar">
+    <div>
+      <h2>The Collection</h2>
+      <p>Explore our vintage driving experience</p>
+    </div>
+    <span class="scroll-hint">SCROLL TO EXPLORE &nbsp; →</span>
+  </div>
+
+  <div class="cars-showcase">
+    <article class="car-card" *ngFor="let car of cars">
+      <div class="car-image">
+        <img
+          [src]="car.image"
+          [alt]="car.name + ' (' + car.year + ')'"
+          loading="lazy"
+          (error)="handleImageError($event)"
+        />
+
+        <span class="car-year">{{ car.year }}</span>
+        <span class="car-category">{{ car.category }}</span>
+      </div>
+
+      <div class="car-details">
+        <div class="car-title-row">
+          <div class="car-title">
+            <h3>{{ car.name }}</h3>
+            <p>Classic edition · {{ car.year }}</p>
+          </div>
+
+          <div class="car-price">
+            <strong>₹{{ car.price | number }}</strong>
+            <span>/ day</span>
+          </div>
+        </div>
+
+        <div class="car-specifications">
+          <div class="spec-item">
+            <span class="spec-icon">◉</span>
+            <div>
+              <small>SEATS</small>
+              <strong>{{ car.seats }}</strong>
+            </div>
+          </div>
+
+          <div class="spec-item">
+            <span class="spec-icon">⚙</span>
+            <div>
+              <small>TRANSMISSION</small>
+              <strong>{{ car.transmission }}</strong>
+            </div>
+          </div>
+
+          <div class="spec-item">
+            <span class="spec-icon">◈</span>
+            <div>
+              <small>FUEL</small>
+              <strong>{{ car.fuel }}</strong>
+            </div>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          class="view-details-btn"
+          (click)="viewCarDetails(car.id)"
+        >
+          Explore This Car
+          <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </article>
+  </div>
+
+  <footer class="collection-footer">
+    <span>REMEH CLASSIC COLLECTION</span>
+    <span>BUILT FOR THE JOURNEY.</span>
+  </footer>
+</section>

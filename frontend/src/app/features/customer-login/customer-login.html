@@ -1,0 +1,57 @@
+
+<div class="login-page">
+  <div class="login-card">
+    <a routerLink="/" class="brand">REMEH</a>
+
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Sign in to continue your journey.</p>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <label for="email">Email address</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        required
+      />
+
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="Enter your password"
+        autocomplete="current-password"
+        required
+      />
+
+      <p class="error-message" *ngIf="errorMessage" role="alert">
+        {{ errorMessage }}
+      </p>
+
+      <button type="submit" [disabled]="isLoading || loginForm.invalid">
+        {{ isLoading ? 'Signing in...' : 'Sign In' }}
+      </button>
+    </form>
+
+    <div class="divider"><span>OR</span></div>
+
+    <button
+  type="button"
+  class="google-button"
+  (click)="continueWithGoogle()"
+  [disabled]="isLoading"
+>
+  Continue with Google
+</button>
+
+    <p class="register-link">
+      Don't have an account?
+      <a routerLink="/register">Create an account</a>
+    </p>
+  </div>
+</div>

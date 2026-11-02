@@ -1,0 +1,331 @@
+
+<main class="home-page">
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="eyebrow">CHASE HORIZONS, IN CLASSIC STYLE</span>
+
+      <h1>
+        Take the scenic route.<br />
+        Make <span>every mile</span> unforgettable.
+      </h1>
+
+      <p>
+        Discover timeless vintage cars and unforgettable escapes.
+        Your next great adventure starts here.
+      </p>
+    </div>
+  </section>
+
+  <!-- Booking Form -->
+  <section class="booking-section">
+    <div class="booking-card">
+
+      <div class="booking-tabs" role="tablist" aria-label="Trip type">
+        <button class="tab active" type="button" role="tab" aria-selected="true">
+          Road Trips
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false">
+          Getaways
+        </button>
+        <button class="tab" type="button" role="tab" aria-selected="false">
+          Scenic Drives
+        </button>
+      </div>
+
+      <form class="booking-form" (ngSubmit)="searchCars()">
+
+        <div class="form-field">
+          <label for="pickupCity">Pickup city</label>
+          <input
+            id="pickupCity"
+            name="pickupCity"
+            type="text"
+            placeholder="Where from?"
+            [(ngModel)]="pickupCity"
+            autocomplete="address-level2"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="dropCity">Drop city</label>
+          <input
+            id="dropCity"
+            name="dropCity"
+            type="text"
+            placeholder="Where to?"
+            [(ngModel)]="dropCity"
+            autocomplete="off"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="pickupDate">Pickup date</label>
+          <input
+            id="pickupDate"
+            name="pickupDate"
+            type="date"
+            [(ngModel)]="pickupDate"
+            [min]="today"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="returnDate">Return date</label>
+          <input
+            id="returnDate"
+            name="returnDate"
+            type="date"
+            [(ngModel)]="returnDate"
+            [min]="pickupDate || today"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="pickupTime">Pickup time</label>
+          <input
+            id="pickupTime"
+            name="pickupTime"
+            type="time"
+            [(ngModel)]="pickupTime"
+            required
+          />
+        </div>
+
+        <div class="form-field">
+          <label for="dropTime">Drop time</label>
+          <input
+            id="dropTime"
+            name="dropTime"
+            type="time"
+            [(ngModel)]="dropTime"
+            required
+          />
+        </div>
+
+        <div class="booking-footer">
+          <p>Choose your dates and discover your next drive.</p>
+          <button class="explore-button" type="submit">
+            Explore Cars <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  
+  
+<!-- WHY CHOOSE REMEH -->
+<section class="why-section">
+  <div class="why-background"></div>
+
+  <div class="home-section-container why-content">
+    <span class="section-eyebrow">THE REMEH EXPERIENCE</span>
+
+    <h2>Why Choose REMEH?</h2>
+
+    <p class="section-intro">
+      Your style, comfort, safety and satisfaction are our top priorities.
+    </p>
+
+    <div class="benefit-grid">
+
+      <!-- Wide Range of Cars -->
+      <article class="benefit-item">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path d="M5 11L7 6.5C7.4 5.6 8.1 5 9.1 5H14.9C15.9 5 16.6 5.6 17 6.5L19 11"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M3.5 11.5C3.5 10.7 4.2 10 5 10H19C19.8 10 20.5 10.7 20.5 11.5V17H3.5V11.5Z"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linejoin="round"/>
+            <path d="M3.5 14H20.5M6 17V19M18 17V19"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round"/>
+            <circle cx="7.5" cy="13" r="1" fill="#B8863B"/>
+            <circle cx="16.5" cy="13" r="1" fill="#B8863B"/>
+          </svg>
+        </div>
+
+        <h3>Wide Range of Cars</h3>
+        <p>Explore a collection of vintage and classic automobiles.</p>
+      </article>
+
+      <!-- Transparent Pricing -->
+      <article class="benefit-item">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <circle cx="12" cy="12" r="9"
+                    stroke="currentColor" stroke-width="1.7"/>
+            <path d="M15 8.5C14.3 7.9 13.4 7.5 12.3 7.5C10.9 7.5 10 8.2 10 9.2C10 10.3 11.1 10.7 12.4 11C13.8 11.3 15 11.8 15 13.1C15 14.4 13.8 15.3 12.2 15.3C10.9 15.3 9.7 14.8 9 14"
+                  stroke="#B8863B" stroke-width="1.7"
+                  stroke-linecap="round"/>
+            <path d="M12 6V17" stroke="currentColor"
+                  stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <h3>Transparent Pricing</h3>
+        <p>See rental rates clearly before proceeding with a booking.</p>
+      </article>
+
+      <!-- Customer Support -->
+      <article class="benefit-item">
+        <div class="benefit-icon">
+          <svg viewBox="0 0 24 24" fill="none"
+               xmlns="http://www.w3.org/2000/svg"
+               aria-hidden="true">
+            <path d="M4 13V11A8 8 0 0 1 20 11V13"
+                  stroke="currentColor" stroke-width="1.7"
+                  stroke-linecap="round"/>
+            <rect x="3" y="12" width="4" height="6" rx="1.5"
+                  stroke="currentColor" stroke-width="1.7"/>
+            <rect x="17" y="12" width="4" height="6" rx="1.5"
+                  stroke="currentColor" stroke-width="1.7"/>
+            <path d="M18 18C17.5 20 15.7 20.5 13 20.5H12"
+                  stroke="#B8863B" stroke-width="1.7"
+                  stroke-linecap="round"/>
+            <circle cx="11" cy="20.5" r="1" fill="#B8863B"/>
+          </svg>
+        </div>
+
+        <h3>Customer Support</h3>
+        <p>Get assistance with your rental questions and journey planning.</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+  <!-- POPULAR DESTINATIONS -->
+  <section class="destinations-section">
+    <div class="home-section-container">
+      <span class="section-eyebrow gold-eyebrow">THE JOURNEY MATTERS</span>
+      <h2>Popular Destinations</h2>
+      <p class="section-intro">
+        Find inspiration for your next scenic escape.
+      </p>
+
+      <div class="destination-grid">
+        <article class="destination-card mountain-card">
+          <div class="destination-content">
+            <span>SCENIC ESCAPE</span>
+            <h3>Mountain Roads</h3>
+            <p>Take the long way around and enjoy the changing landscapes.</p>
+            <a routerLink="/collection" aria-label="Explore cars for mountain roads">→</a>
+          </div>
+        </article>
+
+        <article class="destination-card country-card">
+          <div class="destination-content">
+            <span>WEEKEND DRIVE</span>
+            <h3>Country Getaways</h3>
+            <p>Slow down, discover quiet roads and make time for the journey.</p>
+            <a routerLink="/collection" aria-label="Explore cars for country getaways">→</a>
+          </div>
+        </article>
+
+        <article class="destination-card sunset-card">
+          <div class="destination-content">
+            <span>OPEN ROAD</span>
+            <h3>Sunset Drives</h3>
+            <p>Plan a relaxed drive and enjoy the scenery along the way.</p>
+            <a routerLink="/collection" aria-label="Explore cars for sunset drives">→</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUSTOMER TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="home-section-container testimonials-layout">
+      <div class="testimonials-heading">
+        <span class="section-eyebrow">YOUR JOURNEY, YOUR STORY</span>
+        <h2>Every Drive Has a Story</h2>
+        <p>
+          We look forward to helping our customers create memorable
+          classic-car experiences.
+        </p>
+      </div>
+
+      <div class="testimonial-grid">
+        <article class="testimonial-card">
+          <span class="quote-mark">“</span>
+          <blockquote>
+            An incredible experience! The car was in excellent condition
+            and made our trip truly special.
+          </blockquote>
+          <div class="quote-line"></div>
+          <strong>Customer review</strong>
+          <small>Classic-car experience</small>
+        </article>
+
+        <article class="testimonial-card">
+          <span class="quote-mark">“</span>
+          <blockquote>
+            Professional service and a beautiful collection of classic cars.
+            A memorable driving experience.
+          </blockquote>
+          <div class="quote-line"></div>
+          <strong>Customer review</strong>
+          <small>Vintage-car journey</small>
+        </article>
+
+        <article class="testimonial-card">
+          <span class="quote-mark">“</span>
+          <blockquote>
+            The vintage car added so much charm to our trip. It was all
+            about enjoying the journey.
+          </blockquote>
+          <div class="quote-line"></div>
+          <strong>Customer review</strong>
+          <small>Scenic drive</small>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  
+<!-- Final Booking Banner -->
+
+<section class="final-booking-banner">
+  <div class="final-banner-overlay"></div>
+
+  <div class="final-banner-container">
+    <div class="final-banner-content">
+      <div class="final-eyebrow">
+        <span>YOUR NEXT CHAPTER STARTS HERE</span>
+        <span class="eyebrow-line"></span>
+      </div>
+
+      <h2>
+        Some journeys deserve a classic.
+      </h2>
+
+      <p>
+        Choose a timeless car and make the road part of the memory.
+      </p>
+
+      <a routerLink="/collection" class="final-banner-button">
+        <span>Find Your Classic</span>
+        <span class="button-arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>

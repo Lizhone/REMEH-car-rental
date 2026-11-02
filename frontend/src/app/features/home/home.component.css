@@ -1,0 +1,1046 @@
+/* ==============================
+   REMEH HOMEPAGE
+================================ */
+
+.home-page {
+  width: 100%;
+  overflow: hidden;
+  background: #ffffff;
+  color: #061e40;
+}
+
+/* ==============================
+   HERO SECTION
+================================ */
+
+.hero {
+  position: relative;
+  min-height: 500px;
+  padding: 86px 7% 150px;
+  box-sizing: border-box;
+  color: #ffffff;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(6, 30, 64, 0.90) 0%,
+      rgba(6, 30, 64, 0.68) 40%,
+      rgba(6, 30, 64, 0.12) 100%
+    ),
+    url('/images/remeh-vintage-hero.jpg');
+
+  background-size: cover;
+  background-position: center 58%;
+  background-repeat: no-repeat;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    rgba(6, 30, 64, 0.22),
+    transparent 45%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 850px;
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 22px;
+  color: #8ab8ff;
+  font-size: 1.9rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+}
+
+.hero h1 {
+  max-width: 850px;
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 5.0vw, rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+
+.hero h1 span {
+  color: #a8caff;
+}
+
+.hero-content p {
+  margin-top: 20px;
+  color: #efeef4;
+  font-size: 1.9rem;
+  line-height: 1.7;
+}
+
+/* ==============================
+   BOOKING SECTION
+================================ */
+
+.booking-section {
+  position: relative;
+  z-index: 2;
+  width: min(1160px, 86%);
+  margin: -58px auto 60px;
+}
+
+.booking-card {
+  padding: 24px 28px;
+  background: #ffffff;
+  border: 1px solid #e0e8f2;
+  border-radius: 16px;
+  box-shadow: 0 18px 45px rgba(6, 30, 64, 0.12);
+}
+
+/* Booking tabs */
+
+.booking-tabs {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid #e4ebf4;
+}
+
+.tab {
+  position: relative;
+  padding: 0 2px 16px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tab.active {
+  color: #061e40;
+}
+
+.tab.active::after {
+  position: absolute;
+  right: 0;
+  bottom: -1px;
+  left: 0;
+  height: 3px;
+  background: #2678f3;
+  content: "";
+}
+
+/* Form fields */
+
+.booking-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.form-field label {
+  color: #163d70;
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.form-field input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  box-sizing: border-box;
+  border: 1px solid #d7e1ef;
+  border-radius: 7px;
+  outline: none;
+  background: #ffffff;
+  color: #061e40;
+  font-family: inherit;
+  font-size: 1.2rem;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-field input:focus {
+  border-color: #2678f3;
+  box-shadow: 0 0 0 3px rgba(38, 120, 243, 0.12);
+}
+
+.form-field input::placeholder {
+  color: #7b8798;
+}
+
+/* Booking footer */
+
+.booking-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 2px;
+}
+
+.booking-footer p {
+  margin: 0;
+  color: #718096;
+  font-size: 1.5rem;
+  line-height: 1.5;
+}
+
+.explore-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 46px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 8px;
+  background: #2678f3;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.explore-button:hover {
+  background: #163d70;
+  transform: translateY(-1px);
+}
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+  .hero {
+    min-height: 460px;
+    padding: 72px 5% 120px;
+    background-position: 60% center;
+  }
+
+  .hero h1 {
+    max-width: 680px;
+  }
+
+  .booking-section {
+    width: 92%;
+  }
+
+  .booking-card {
+    padding: 22px;
+  }
+
+  .booking-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+  .hero {
+    min-height: 440px;
+    padding: 58px 22px 110px;
+    background-position: 62% center;
+  }
+
+  .eyebrow {
+    margin-bottom: 16px;
+    font-size: 0.7rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 10vw, 3.3rem);
+    line-height: 1.12;
+  }
+
+  .hero-content p {
+    max-width: 300px;
+    font-size: 0.95rem;
+  }
+
+  .booking-section {
+    width: calc(100% - 28px);
+    margin-top: -48px;
+    margin-bottom: 36px;
+  }
+
+  .booking-card {
+    padding: 20px 16px;
+    border-radius: 12px;
+  }
+
+  .booking-tabs {
+    gap: 22px;
+    margin-bottom: 20px;
+  }
+
+  .tab {
+    font-size: 0.82rem;
+  }
+
+  .booking-form {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .booking-footer {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 6px;
+  }
+
+  .explore-button {
+    width: 100%;
+  }
+}
+
+/* Shared home-page section styles */
+.home-section-container {
+  width: min(1240px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.why-section,
+.testimonials-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 68px 0;
+  background: #f7f2e7;
+  color: #061e40;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 12px;
+  color: #a87932;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+}
+
+.home-section-container h2 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.section-intro {
+  margin: 12px 0 0;
+  color: #4c5360;
+  font-size: 20px;
+  line-height: 1.7;
+}
+/* Why Choose REMEH */
+
+
+.why-section .home-section-container.why-content {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  margin: 5% !important;
+  padding:  24px;
+  left:0;
+  transform: none;
+  box-sizing: border-box;
+}
+
+.why-section .benefit-grid {
+  justify-content: start;
+  margin-left: 1%;
+}
+
+.why-section .why-content h2,
+.why-section .why-content .section-intro,
+.why-section .why-content .section-eyebrow {
+  text-align: left;
+}
+
+
+.why-background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      90deg,
+      #f7f2e7 0%,
+      rgba(247, 242, 231, 0.97) 24%,
+      rgba(247, 242, 231, 0.85) 40%,
+      rgba(247, 242, 231, 0.45) 56%,
+      rgba(247, 242, 231, 0.08) 72%,
+      transparent 82%
+    ),
+    url('/images/remeh-vintage-hero.jpg');
+
+  background-size: cover;
+  background-position: center 68%;
+  background-repeat: no-repeat;
+}
+.why-content {
+  position: relative;
+  width: calc(100% - 80px);
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+
+.why-content .eyebrow {
+  color: #b8863b;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+.why-content h2 {
+  margin: 12px 0;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(30px, 3vw, 42px);
+  text-align: left;
+}
+.why-content .section-intro {
+  margin: 0;
+  color: #263b55;
+  font-size: 20px;
+  line-height: 1.7;
+  text-align: left;
+}
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 200px));
+  gap: 25px;
+  justify-content: start;
+  margin-top: 30px;
+}
+
+.benefit-item {
+  min-width: 0;
+}
+.benefit-icon {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 13px;
+  border: 1px solid #e7d8bd;
+  border-radius: 70%;
+  background: rgba(255, 255, 255, 0.8);
+  color: #061e40;
+}
+
+
+.benefit-icon svg {
+  width: 50px;
+  height: 50px;
+}
+
+.benefit-item h3 {
+  margin: 0 0 9px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 20px;
+}
+
+.benefit-item p {
+  margin: 0;
+  color: #03112b;
+  font-size: 19px;
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 700px) {
+  .why-section {
+    padding: 40px 0;
+  }
+
+  .why-content {
+    width: calc(100% - 32px);
+    padding-left: 0;
+  }
+
+  .why-background {
+    background-image:
+      linear-gradient(
+        rgba(247, 242, 231, 0.91),
+        rgba(247, 242, 231, 0.91)
+      ),
+      url('/images/remeh-vintage-hero.jpg');
+    background-position: center;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Popular destinations */
+.destinations-section {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 52px;
+  background:
+        url("/images/destination-bg.png") center / cover no-repeat;
+  color: #fff;
+}
+
+.destinations-section .section-intro {
+  margin-top: 8px;
+  color: #e1e5eb;
+}
+
+.gold-eyebrow {
+  color: #5b3d0d;
+  font-size:30px;
+}
+.section-intro {
+  color: #061e40 !important;
+  font-size: 25px;
+}
+.destination-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 25px;
+}
+
+.destination-card {
+  position: relative;
+  display: flex;
+  min-height: 220px;
+  align-items: flex-end;
+  overflow: hidden;
+  border: 1px solid rgb(255 255 255 / 45%);
+  border-radius: 12px;
+  background-color: #35495c;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.destination-card::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgb(3 18 33 / 94%), transparent 95%);
+  content: "";
+}
+
+.destination-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgb(0 0 0 / 24%);
+}
+
+.mountain-card {
+  background-image: url("/images/mountain-road.jpg");
+}
+
+.country-card {
+  background-image: url("/images/country-getaway.jpg");
+}
+
+.sunset-card {
+  background-image: url("/images/sunset-drive.jpg");
+}
+
+.destination-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 22px;
+}
+
+.destination-content > span {
+  color: #0a0761;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.destination-content h3 {
+  margin: 8px 0 7px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+}
+
+.destination-content p {
+  max-width: 300px;
+  margin: 0 0 14px;
+  color: #f0f2f5;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.destination-content a {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #d9a34e;
+  color: #061e40;
+  font-size: 30px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+.destination-content a:hover {
+  background: #fff;
+}
+
+/* Testimonials */
+.testimonials-section {
+  position: relative;
+  overflow: hidden;
+  padding: 48px 0 52px;
+  background:
+        url("/images/testimonials-bg.png") center / cover no-repeat;
+  color: #10115c;
+}
+
+.testimonials-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.85fr) minmax(0, 1.8fr);
+  align-items: center;
+  gap: 35px;
+}
+.section-eyebrow {
+  color: #e8b75f;
+  font-size: 20px;
+  letter-spacing: 2px;
+
+}
+.testimonials-heading p {
+  max-width: 400px;
+  margin: 13px 0 0;
+  color: #4c5360;
+  font-size: 20px;
+  line-height: 1.75;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.testimonial-card {
+  min-width: 0;
+  padding: 21px 18px;
+  border: 1px solid #eee5d6;
+  border-radius: 12px;
+  background: rgb(255 255 255 / 76%);
+  box-shadow: 0 8px 24px rgb(45 33 15 / 5%);
+}
+
+.quote-mark {
+  display: block;
+  height: 25px;
+  color: #b78842;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.testimonial-card blockquote {
+  margin: 10px 0 15px;
+  color: #45434a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  font-style: italic;
+  line-height: 1.65;
+}
+
+.quote-line {
+  width: 35px;
+  height: 2px;
+  margin-bottom: 12px;
+  background: #b78842;
+}
+
+.testimonial-card strong,
+.testimonial-card small {
+  display: block;
+}
+
+.testimonial-card strong {
+  color: #061e40;
+  font-size: 17px;
+}
+
+.testimonial-card small {
+  margin-top: 5px;
+  color: #73717a;
+  font-size: 15px;
+}
+
+
+/* Final booking banner */
+.final-booking-banner {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 330px;
+  overflow: hidden;
+  background-color: #061e40;
+  background-image: url('/images/final-banner-bg.png');
+  background-position: center 57%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+}
+
+.final-banner-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    90deg,
+    rgba(4, 20, 38, 0.96) 0%,
+    rgba(4, 20, 38, 0.86) 33%,
+    rgba(4, 20, 38, 0.45) 58%,
+    rgba(4, 20, 38, 0.05) 100%
+  );
+}
+
+.final-banner-container {
+  display: flex;
+  align-items: center;
+  width: min(1220px, 90%);
+  min-height: 230px;
+  margin: 0 auto;
+  padding: 25px 0;
+}
+
+.final-banner-content {
+  position: relative;
+  z-index: 1;
+  width: 65%;
+  max-width: 650px;
+}
+
+.final-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+  color: #e8b75f;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: #e8b75f;
+}
+
+.final-banner-content h2 {
+  margin: 0;
+  color: #ffffff;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(30px, 2.9vw, 46px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.final-banner-content p {
+  margin: 8px 0 15px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.final-banner-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  min-width: 150px;
+  padding: 10px 17px;
+  border: 1px solid #c39243;
+  border-radius: 25px;
+  background: #c39243;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.final-banner-button:hover {
+  transform: translateY(-2px);
+  background: #a9772d;
+}
+
+.button-arrow {
+  font-size: 16px;
+  transition: transform 0.2s ease;
+}
+
+.final-banner-button:hover .button-arrow {
+  transform: translateX(3px);
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .final-booking-banner,
+  .final-banner-container {
+    min-height: 250px;
+  }
+
+  .final-banner-container {
+    width: 88%;
+  }
+
+  .final-banner-content {
+    width: 75%;
+  }
+
+  .final-banner-content h2 {
+    font-size: clamp(24px, 4vw, 32px);
+  }
+
+  .final-banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(4, 20, 38, 0.95) 0%,
+      rgba(4, 20, 38, 0.82) 55%,
+      rgba(4, 20, 38, 0.4) 100%
+    );
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .final-booking-banner,
+  .final-banner-container {
+    min-height: 280px;
+  }
+
+  .final-banner-container {
+    width: 88%;
+    padding: 30px 0;
+  }
+
+  .final-banner-content {
+    width: 100%;
+    max-width: 340px;
+  }
+
+  .final-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.3px;
+  }
+
+  .eyebrow-line {
+    width: 20px;
+  }
+
+  .final-banner-content h2 {
+    max-width: 300px;
+    font-size: 29px;
+    line-height: 1.2;
+  }
+
+  .final-banner-content p {
+    max-width: 270px;
+    font-size: 11px;
+  }
+}
+
+
+/* Tablet */
+@media (max-width: 768px) {
+  .final-booking-banner,
+  .final-banner-container {
+    min-height: 400px;
+  }
+
+  .final-banner-container {
+    width: 88%;
+    padding: 55px 0;
+  }
+
+  .final-banner-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(4, 20, 39, 0.95),
+      rgba(4, 20, 39, 0.78)
+    );
+  }
+
+  .final-banner-content h2 {
+    font-size: clamp(40px, 7vw, 54px);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .final-booking-banner,
+  .final-banner-container {
+    min-height: 390px;
+  }
+
+  .final-banner-container {
+    width: 88%;
+    padding: 48px 0;
+  }
+
+  .final-banner-content {
+    max-width: 100%;
+  }
+
+  .final-eyebrow {
+    margin-bottom: 16px;
+    font-size: 9px;
+    letter-spacing: 1.8px;
+  }
+
+  .final-banner-content h2 {
+    font-size: 39px;
+    line-height: 1.14;
+    letter-spacing: -0.5px;
+  }
+
+  .final-banner-content p {
+    margin: 18px 0 25px;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .final-banner-button {
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .banner-note {
+    margin-top: 28px;
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .benefit-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+  }
+
+  .testimonials-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .destination-card {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 650px) {
+  .home-section-container {
+    width: calc(100% - 32px);
+  }
+
+  .why-section,
+  .testimonials-section {
+    padding: 42px 0;
+  }
+
+  .benefit-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .benefit-item {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  .benefit-icon {
+    width: 50px;
+    height: 50px;
+    grid-row: span 2;
+    margin: 0;
+    font-size: 23px;
+  }
+
+  .benefit-item h3 {
+    font-size: 18px;
+  }
+
+  .benefit-item p {
+    font-size: 13px;
+  }
+
+  .destinations-section {
+    padding: 38px 0;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .destination-card {
+    min-height: 210px;
+  }
+
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card {
+    padding: 20px;
+  }
+
+  .final-cta-section {
+    padding: 38px 0;
+    background-position: 65% center;
+  }
+
+  .final-cta-content h2 {
+    font-size: 32px;
+  }
+}

@@ -1,0 +1,150 @@
+
+:host {
+  display: block;
+}
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+
+  background-color: transparent;
+  background-image:
+   
+    url('/images/register-bg.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+  .register-page {
+    padding: 28px 16px;
+    background-attachment: scroll;
+  }
+}
+
+
+.register-card {
+   width: 100%;
+  max-width: 630px;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e6e8ec;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgb(6 30 64 / 8%);
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 30px;
+  color: #061e40;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.eyebrow {
+  margin: 0 0 30px;
+  color: #2678f3;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+h1 {
+  margin: 0 0 14px;
+  color: #061e40;
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.2;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: #697386;
+  line-height: 1.7;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 8px;
+  color: #263449;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 13px 14px;
+  border: 1px solid #d8dde5;
+  border-radius: 7px;
+  outline: none;
+  font: inherit;
+}
+
+input:focus {
+  border-color: #2678f3;
+  box-shadow: 0 0 0 3px rgb(38 120 243 / 12%);
+}
+
+button {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: #2678f3;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error-message {
+  color: #b42318;
+  font-size: 14px;
+}
+
+.success-message {
+  color: #18794e;
+  font-size: 14px;
+}
+
+.login-link {
+  margin-top: 24px;
+  color: #697386;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-link a {
+  color: #2678f3;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 24px 16px;
+  }
+
+  .register-card {
+    padding: 24px 8px;
+  }
+}

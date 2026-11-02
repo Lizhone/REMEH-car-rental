@@ -1,0 +1,154 @@
+
+<section class="confirm-page">
+  <div class="confirm-container">
+
+    <a routerLink="/collection" class="back-link">
+      <span>←</span> Back to Collection
+    </a>
+
+    <header class="page-heading">
+      <span class="eyebrow">REMEH CAR RENTAL</span>
+      <h1>Confirm Your Booking</h1>
+      <p>Please review your vehicle and trip details before proceeding.</p>
+    </header>
+
+    <div *ngIf="booking as b; else bookingError" class="confirm-layout">
+
+      <!-- Main booking information -->
+      <main class="booking-main">
+
+        <section class="vehicle-card">
+          <div class="vehicle-image">
+            <img [src]="b.carImage" [alt]="b.carName" />
+            <span class="year-badge">{{ b.carYear }}</span>
+          </div>
+
+          <div class="vehicle-info">
+            <span class="eyebrow">YOUR SELECTED VEHICLE</span>
+            <h2>{{ b.carName }}</h2>
+            <p>Classic automobile · {{ b.carYear }}</p>
+
+            <div class="vehicle-rate">
+              <span>Daily rental</span>
+              <strong>₹{{ b.dailyRate | number }}</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="trip-card">
+          <div class="section-title">
+            <div>
+              <span class="eyebrow">YOUR JOURNEY</span>
+              <h2>Rental Details</h2>
+            </div>
+            <span class="trip-days">
+              {{ totalDays }} {{ totalDays === 1 ? 'day' : 'days' }}
+            </span>
+          </div>
+
+          <div class="detail-row">
+            <span>Full Name</span>
+            <strong>{{ b.fullName }}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Email Address</span>
+            <strong>{{ b.email }}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Phone Number</span>
+            <strong>{{ b.phone }}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Pickup Location</span>
+            <strong>{{ b.pickupLocation }}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Pickup Date</span>
+            <strong>{{ formatDate(b.pickupDate) }}</strong>
+          </div>
+
+          <div class="detail-row">
+            <span>Return Date</span>
+            <strong>{{ formatDate(b.returnDate) }}</strong>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- Price summary -->
+      <aside class="price-card">
+        <span class="eyebrow">BOOKING SUMMARY</span>
+        <h2>Price Breakdown</h2>
+        <p class="summary-description">
+          Review your estimated rental cost.
+        </p>
+
+        <div class="price-row">
+          <span>Daily rental</span>
+          <strong>₹{{ b.dailyRate | number }}</strong>
+        </div>
+
+        <div class="price-row">
+          <span>Duration</span>
+          <strong>{{ totalDays }} days</strong>
+        </div>
+
+        <div class="price-row">
+          <span>Rental subtotal</span>
+          <strong>₹{{ rentalTotal | number }}</strong>
+        </div>
+
+        <div class="price-row muted-row">
+          <span>Additional fees</span>
+          <strong>Not included</strong>
+        </div>
+
+        <div class="total-row">
+          <span>Estimated total</span>
+          <strong>₹{{ rentalTotal | number }}</strong>
+          <small>Final charges may vary if additional fees apply.</small>
+        </div>
+
+        <button
+          type="button"
+          class="primary-button"
+          [disabled]="totalDays < 1"
+          (click)="continueToPayment()">
+          Continue to Payment
+          <span>→</span>
+        </button>
+
+        <button
+          type="button"
+          class="secondary-button"
+          (click)="editDetails()">
+          ← Edit Details
+        </button>
+
+        <p class="secure-note">
+          Review your details carefully before continuing.
+        </p>
+      </aside>
+
+    </div>
+
+    <ng-template #bookingError>
+      <div class="empty-state">
+        <div class="empty-icon">!</div>
+        <h2>Booking details unavailable</h2>
+        <p>
+          {{ errorMessage || 'Please return to the collection and start your booking again.' }}
+        </p>
+        <a routerLink="/collection" class="primary-button">
+          Browse Collection
+          <span>→</span>
+        </a>
+      </div>
+    </ng-template>
+
+  </div>
+</section>

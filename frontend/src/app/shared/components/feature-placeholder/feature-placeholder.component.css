@@ -1,0 +1,401 @@
+
+/* =========================================
+   REMEH CAR RENTAL — SERVICES PAGE
+   Vintage background • Navy • Cream • Gold
+   ========================================= */
+
+/* Base page */
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.placeholder-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 45px 5% 70px;
+
+  /* Full-page vintage car background */
+  background-image:
+    linear-gradient(
+      rgba(9, 15, 24, 0.24),
+      rgba(9, 15, 24, 0.38)
+    ),
+    url('/images/Vintage Roadster Overlooking a Golden Lake.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+}
+
+/* Main content wrapper */
+.placeholder-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   TOP PAGE HEADING
+   ========================================= */
+
+.placeholder-content > .eyebrow {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #f2c879;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.placeholder-content > h1 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  font-weight: 700;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.placeholder-content > .page-description {
+  max-width: 680px;
+  margin: 0 0 22px;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.7;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+
+.return-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 12px 22px;
+
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: #2678f3;
+  color: #ffffff !important;
+
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none !important;
+
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.return-button:hover {
+  background: #155ecb;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.return-button:focus-visible {
+  outline: 3px solid #f2c879;
+  outline-offset: 3px;
+}
+
+/* =========================================
+   SERVICES SECTION
+   Transparent so the page background shows
+   ========================================= */
+
+.services-section {
+  width: 100%;
+  margin-top: 55px;
+  padding: 35px 3% 10px;
+
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Services heading */
+.services-heading {
+  max-width: 720px;
+  margin: 0 0 32px;
+}
+
+.services-heading .eyebrow,
+.services-cta .eyebrow {
+  display: inline-block;
+  margin: 0 0 12px;
+
+  color: #f2c879;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  text-transform: uppercase;
+
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+
+.services-heading h2,
+.services-cta h2 {
+  margin: 0 0 14px;
+  color: #ffffff;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 700;
+  line-height: 1.2;
+
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.services-heading p,
+.services-cta p {
+  margin: 0;
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.8;
+
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* =========================================
+   SERVICES GRID
+   ========================================= */
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+/* Individual service cards */
+.service-card {
+  min-width: 0;
+  padding: 26px 24px;
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 12px;
+
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.09);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+}
+
+/* Service icons */
+.service-icon {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+/* Card titles */
+.service-card h3 {
+  margin: 0 0 10px;
+  color: #061e40;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* Card descriptions */
+.service-card p {
+  margin: 0;
+  color: #39475b;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* =========================================
+   BOTTOM CALL TO ACTION
+   Subtle dark glass effect, not solid blue
+   ========================================= */
+
+.services-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  width: 100%;
+  margin-top: 32px;
+  padding: 30px;
+
+  background: rgba(10, 18, 28, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 12px;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.services-cta > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.services-cta h2 {
+  margin-bottom: 12px;
+}
+
+.services-cta p {
+  max-width: 680px;
+}
+
+/* Keep CTA button visible */
+.services-cta .return-button {
+  flex-shrink: 0;
+  background: #2678f3;
+  color: #ffffff !important;
+}
+
+/* =========================================
+   TABLET RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 1000px) {
+  .placeholder-page {
+    padding: 35px 4% 55px;
+    background-position: center;
+  }
+
+  .services-section {
+    margin-top: 40px;
+    padding: 30px 0 10px;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .services-cta {
+    padding: 25px;
+    gap: 22px;
+  }
+
+  .services-cta h2 {
+    font-size: clamp(26px, 3.5vw, 36px);
+  }
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS
+   ========================================= */
+
+@media (max-width: 600px) {
+  .placeholder-page {
+    min-height: 100vh;
+    padding: 28px 18px 40px;
+
+    background-position: 38% center;
+    background-size: cover;
+  }
+
+  .placeholder-content > h1 {
+    font-size: 32px;
+  }
+
+  .placeholder-content > .page-description {
+    font-size: 14px;
+  }
+
+  .services-section {
+    margin-top: 35px;
+    padding: 25px 0 5px;
+  }
+
+  .services-heading {
+    margin-bottom: 25px;
+  }
+
+  .services-heading h2,
+  .services-cta h2 {
+    font-size: 29px;
+  }
+
+  .services-heading p,
+  .services-cta p {
+    font-size: 14px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .service-card {
+    padding: 23px 21px;
+  }
+
+  .service-card h3 {
+    font-size: 17px;
+  }
+
+  .services-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 25px;
+    padding: 24px 20px;
+
+    background: rgba(10, 18, 28, 0.38);
+  }
+
+  .services-cta .return-button {
+    width: 100%;
+    white-space: normal;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE SCREENS
+   ========================================= */
+
+@media (max-width: 360px) {
+  .placeholder-page {
+    padding-right: 14px;
+    padding-left: 14px;
+  }
+
+  .placeholder-content > h1 {
+    font-size: 28px;
+  }
+
+  .services-heading h2,
+  .services-cta h2 {
+    font-size: 25px;
+  }
+
+  .service-card {
+    padding: 20px 17px;
+  }
+}

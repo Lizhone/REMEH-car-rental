@@ -1,0 +1,76 @@
+:root {
+  color-scheme: light;
+  --navy: #061e40;
+  --secondary-blue: #163d70;
+  --accent-blue: #2678f3;
+  --white: #ffffff;
+  --light-background: #eaf0f8;
+  --text: #152238;
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--white);
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; scroll-behavior: smooth; }
+body { min-width: 320px; min-height: 100vh; margin: 0; color: var(--text); }
+body, button, input { font-family: Inter, "Segoe UI", Arial, sans-serif; }
+a { color: inherit; text-decoration: none; }
+button, input { font: inherit; }
+app-root { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+.container { width: min(1160px, calc(100% - 48px)); margin-inline: auto; }
+
+.button {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: .9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color .2s ease, border-color .2s ease, transform .2s ease;
+}
+.button:hover { transform: translateY(-1px); }
+.button-primary { color: var(--white); background: var(--accent-blue); }
+.button-primary:hover { background: #1766dc; }
+.button-outline { border-color: var(--navy); color: var(--navy); background: transparent; }
+.button-outline:hover { color: var(--white); background: var(--navy); }
+.button-light { color: var(--navy); background: var(--white); }
+.button-light:hover { background: #eaf0f8; }
+
+@media (max-width: 520px) {
+  .container { width: min(100% - 32px, 1160px); }
+}
+
+/* Mobile viewport width fix */
+@media (max-width: 600px) {
+  html,
+  body,
+  app-root {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  app-root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  router-outlet {
+    display: none;
+  }
+
+  .cars-page {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+

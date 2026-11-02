@@ -1,0 +1,221 @@
+
+<section class="booking-page">
+  <div class="booking-container">
+
+    <a routerLink="/collection" class="back-link">
+      <span>←</span> Back to Collection
+    </a>
+
+    <header class="page-heading">
+      <span class="eyebrow">REMEH · CLASSIC AUTOMOBILES</span>
+      <h1>Enter Your Details</h1>
+      <p>Tell us a little about yourself to begin your classic-car journey.</p>
+    </header>
+
+    <!-- Booking Progress -->
+    <div class="booking-progress" aria-label="Booking progress">
+      <div class="progress-step active">
+        <span class="step-number">01</span>
+        <span>Enter Details</span>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-step">
+        <span class="step-number">02</span>
+        <span>Confirm Booking</span>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-step">
+        <span class="step-number">03</span>
+        <span>Payment</span>
+      </div>
+
+      <div class="progress-line"></div>
+
+      <div class="progress-step">
+        <span class="step-number">04</span>
+        <span>Confirmation</span>
+      </div>
+    </div>
+
+    <div *ngIf="car; else noCar" class="booking-layout">
+
+      <!-- Customer Details -->
+      <main class="form-card">
+
+        <div class="card-heading">
+          <span class="eyebrow">YOUR INFORMATION</span>
+          <h2>Who's driving?</h2>
+          <p>Fields marked with * are required.</p>
+        </div>
+
+        <form
+          (ngSubmit)="continueToConfirmation()"
+          #bookingForm="ngForm">
+
+          <div class="form-grid">
+
+            <div class="form-field full-width">
+              <label for="fullName">Full Name *</label>
+              <input
+                id="fullName"
+                name="fullName"
+                type="text"
+                [(ngModel)]="fullName"
+                placeholder="Enter your full name"
+                autocomplete="name"
+                required
+                minlength="2"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email Address *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                [(ngModel)]="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="phone">Phone Number *</label>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                [(ngModel)]="phone"
+                placeholder="+91 98765 43210"
+                autocomplete="tel"
+                required
+              />
+            </div>
+
+            <div class="form-field full-width">
+              <label for="licence">Driving Licence Number *</label>
+              <input
+                id="licence"
+                name="licence"
+                type="text"
+                [(ngModel)]="licence"
+                placeholder="Enter your driving licence number"
+                autocomplete="off"
+                required
+              />
+              <small>
+                Please ensure you have a valid licence for your rental.
+              </small>
+            </div>
+
+          </div>
+
+          <div class="form-divider"></div>
+
+         
+
+          
+
+          <!-- Continue -->
+          <button
+            class="primary-button"
+            type="submit"
+            [disabled]="bookingForm.invalid">
+
+            Review Booking
+            <span>→</span>
+
+          </button>
+
+          <p class="form-note">
+            Review your customer details, selected vehicle and trip
+            information before proceeding.
+          </p>
+
+        </form>
+      </main>
+
+      <!-- Selected Car and Price Summary -->
+      <aside class="summary-card">
+
+        <span class="eyebrow">YOUR SELECTED CLASSIC</span>
+        <h2>Booking Summary</h2>
+
+        <div class="car-preview">
+          <img
+            [src]="car.image"
+            [alt]="car.name"
+          />
+
+          <span class="year-badge">{{ car.year }}</span>
+        </div>
+
+        <div class="selected-car">
+          <span class="eyebrow">REMEH COLLECTION</span>
+          <h3>{{ car.name }}</h3>
+          <p>Classic automobile · {{ car.year }}</p>
+        </div>
+
+        <div class="summary-row">
+          <span>Daily rental</span>
+          <strong>₹{{ car.price | number }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Rental duration</span>
+          <strong>
+            {{
+              rentalDays > 0
+                ? rentalDays + (rentalDays === 1 ? ' day' : ' days')
+                : 'Not selected'
+            }}
+          </strong>
+        </div>
+
+        <div class="estimated-total">
+          <span>Estimated rental total</span>
+          <strong>₹{{ rentalTotal | number }}</strong>
+          <small>
+            Additional fees, if applicable, are not included.
+          </small>
+        </div>
+
+        <div class="summary-footnote">
+          <span class="info-icon">i</span>
+          <p>
+            Your selected car and trip details will be included
+            in your booking summary.
+          </p>
+        </div>
+
+      </aside>
+
+    </div>
+
+    <!-- No Car Selected -->
+    <ng-template #noCar>
+      <div class="empty-state">
+        <h2>No vehicle selected</h2>
+
+        <p>
+          {{
+            errorMessage ||
+            'Please choose a classic car before starting your booking.'
+          }}
+        </p>
+
+        <a routerLink="/collection" class="primary-button">
+          Browse the Collection
+          <span>→</span>
+        </a>
+      </div>
+    </ng-template>
+
+  </div>
+</section>

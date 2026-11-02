@@ -1,0 +1,655 @@
+
+:host {
+  display: block;
+  color: #061e40;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.payment-page {
+  min-height: 100vh;
+  padding: 42px 24px 76px;
+
+  background-color: transparent;
+  background-image:
+  
+    url('/images/payment-bg.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 560px) {
+  .payment-page {
+    padding: 25px 15px 45px;
+    background-attachment: scroll;
+  }
+}
+
+
+.payment-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 30px;
+  color: #ba1a97;
+  font-size: 15px;
+  text-decoration: none;
+}
+
+.back-link span {
+  color: #f326d4;
+  font-size: 30px;
+}
+
+.back-link:hover {
+  color: #9c096b;
+}
+
+/* Heading */
+
+.eyebrow {
+  display: block;
+  color: #710e11;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.page-heading {
+  margin-bottom: 28px;
+}
+
+.page-heading h1 {
+  margin: 12px 0 10px;
+  color: #00050d;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.page-heading p {
+  margin: 0;
+  color: #092c59;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* Progress tracker */
+
+.booking-progress {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 32px;
+  padding: 18px 20px;
+  border: 1px solid #dfe6f0;
+  border-radius: 10px;
+  background: #ffffff;
+}
+
+.progress-step {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #91a0b3;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.step-number {
+  display: flex;
+  width: 29px;
+  height: 29px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d9e1ec;
+  border-radius: 50%;
+  background: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.progress-step.completed {
+  color: #183f76;
+}
+
+.progress-step.completed .step-number {
+  border-color: #2678f3;
+  background: #eaf2ff;
+  color: #1766df;
+}
+
+.progress-step.active {
+  color: #061e40;
+  font-weight: 700;
+}
+
+.progress-step.active .step-number {
+  border-color: #2678f3;
+  background: #2678f3;
+  color: #ffffff;
+}
+
+.progress-line {
+  height: 1px;
+  min-width: 12px;
+  flex: 1;
+  background: #dfe6f0;
+}
+
+.progress-line.completed-line {
+  background: #8db8ff;
+}
+
+/* Two-column layout */
+
+.payment-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(300px, 0.8fr);
+  align-items: start;
+  gap: 25px;
+}
+
+.payment-main {
+  min-width: 0;
+}
+
+.payment-card,
+.order-summary,
+.missing-booking {
+  min-width: 0;
+  border: 1px solid #dfe6f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgb(6 30 64 / 4%);
+}
+
+.payment-card {
+  padding: 30px;
+}
+
+.section-heading {
+  margin-bottom: 23px;
+}
+
+.section-heading h2,
+.order-summary > h2 {
+  margin: 9px 0 8px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.section-heading p {
+  margin: 0;
+  color: #8190a3;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* Payment methods */
+
+.payment-methods {
+  display: grid;
+  gap: 10px;
+}
+
+.method-option {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 13px;
+  padding: 15px;
+  border: 1px solid #dfe6f0;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #061e40;
+  font-family: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.method-option:hover {
+  border-color: #9cbcf1;
+}
+
+.method-option.selected {
+  border-color: #2678f3;
+  background: #f2f7ff;
+  box-shadow: 0 0 0 2px rgb(38 120 243 / 7%);
+}
+
+.method-icon {
+  display: flex;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #e0e9f6;
+  border-radius: 8px;
+  background: #edf4ff;
+  color: #2678f3;
+  font-size: 28px;
+}
+
+.method-text {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.method-text strong {
+  color: #18304f;
+  font-size: 20px;
+}
+
+.method-text small {
+  color: #8290a3;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.radio-indicator {
+  display: flex;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #bac7d8;
+  border-radius: 50%;
+}
+
+.method-option.selected .radio-indicator {
+  border: 5px solid #2678f3;
+}
+
+/* Payment input fields */
+
+.payment-fields {
+  display: grid;
+  gap: 18px;
+  margin-top: 25px;
+  padding-top: 24px;
+  border-top: 1px solid #e7edf5;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-field label {
+  color: #263b57;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.form-field input,
+.form-field select {
+  width: 100%;
+  min-width: 0;
+  height: 45px;
+  padding: 0 12px;
+  border: 1px solid #d8e1ed;
+  border-radius: 6px;
+  outline: none;
+  background: #ffffff;
+  color: #061e40;
+  font-family: inherit;
+  font-size: 17px;
+}
+
+.form-field input::placeholder {
+  color: #a0acba;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border-color: #2678f3;
+  box-shadow: 0 0 0 3px rgb(38 120 243 / 10%);
+}
+
+.form-field small {
+  color: #8391a3;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Demo notice and errors */
+
+.demo-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 24px;
+  padding: 15px;
+  border: 1px solid #dce8fb;
+  border-radius: 8px;
+  background: #f2f7ff;
+}
+
+.notice-icon {
+  display: flex;
+  width: 19px;
+  height: 19px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #9ebff2;
+  border-radius: 50%;
+  color: #2678f3;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.demo-notice p {
+  margin: 0;
+  color: #60748e;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.demo-notice strong {
+  display: block;
+  margin-bottom: 3px;
+  color: #183b6d;
+}
+
+.error-message {
+  margin-top: 18px;
+  padding: 12px 14px;
+  border: 1px solid #f0caca;
+  border-radius: 7px;
+  background: #fff5f5;
+  color: #a32d2d;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* Pay button */
+
+.pay-button {
+  display: flex;
+  width: 100%;
+  min-height: 49px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 23px;
+  padding: 14px 17px;
+  border: 1px solid #2678f3;
+  border-radius: 7px;
+  background: #2678f3;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pay-button:hover:not(:disabled) {
+  border-color: #061e40;
+  background: #061e40;
+}
+
+.pay-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.payment-footnote {
+  margin: 13px 0 0;
+  color: #8492a4;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Booking summary */
+
+.order-summary {
+  position: sticky;
+  top: 20px;
+  padding: 25px;
+}
+
+.order-summary > h2 {
+  margin-bottom: 20px;
+}
+
+.car-image {
+  position: relative;
+  display: flex;
+  height: 210px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid #e2e8f1;
+  border-radius: 8px;
+  background: #edf1f7;
+}
+
+.car-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.year-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 7px 10px;
+  border-radius: 5px;
+  background: #061e40;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.order-summary > h3 {
+  margin: 20px 0 7px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.car-subtitle {
+  margin: 0;
+  color: #8290a3;
+  font-size: 11px;
+}
+
+.summary-divider {
+  height: 1px;
+  margin: 20px 0 5px;
+  background: #e7edf5;
+}
+
+.summary-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #edf1f6;
+  font-size: 17px;
+}
+
+.summary-row span {
+  max-width: 45%;
+  color: #718198;
+}
+
+.summary-row strong {
+  max-width: 55%;
+  color: #1a304d;
+  font-size: 17px;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* Total */
+
+.total-box {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #d8e6fc;
+  border-radius: 8px;
+  background: #f0f6ff;
+}
+
+.total-box > span {
+  display: block;
+  color: #60738d;
+  font-size: 17px;
+}
+
+.total-box > strong {
+  display: block;
+  margin: 10px 0;
+  color: #061e40;
+  font-size: 29px;
+  letter-spacing: -0.5px;
+}
+
+.total-box small {
+  display: block;
+  color: #8493a6;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Missing booking */
+
+.missing-booking {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 40px 25px;
+  text-align: center;
+}
+
+.missing-booking h2 {
+  margin: 0 0 12px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.missing-booking p {
+  color: #718198;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.missing-booking .pay-button {
+  max-width: 260px;
+  margin: 22px auto 0;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .payment-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .order-summary {
+    position: static;
+  }
+
+  .car-image {
+    height: 260px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .payment-page {
+    padding: 25px 14px 45px;
+  }
+
+  .page-heading h1 {
+    font-size: 34px;
+  }
+
+  .booking-progress {
+    gap: 7px;
+    padding: 13px 10px;
+  }
+
+  .progress-step {
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    font-size: 9px;
+    text-align: center;
+    white-space: normal;
+  }
+
+  .progress-line {
+    min-width: 5px;
+    flex: 0.25;
+    margin-top: -18px;
+  }
+
+  .payment-card,
+  .order-summary {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .car-image {
+    height: 220px;
+  }
+}

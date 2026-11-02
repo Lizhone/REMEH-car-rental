@@ -1,0 +1,299 @@
+
+<section class="payment-page">
+  <div class="payment-container">
+
+    <a routerLink="/booking/confirm" class="back-link">
+      <span>←</span> Back to Booking Summary
+    </a>
+
+    <header class="page-heading">
+      <span class="eyebrow">REMEH · CLASSIC AUTOMOBILES</span>
+      <h1>Complete Your Payment</h1>
+      <p>Review your booking and select your preferred payment method.</p>
+    </header>
+
+    <!-- Booking progress -->
+    <div class="booking-progress">
+      <div class="progress-step completed">
+        <span class="step-number">✓</span>
+        <span>Details</span>
+      </div>
+      <div class="progress-line completed-line"></div>
+      <div class="progress-step completed">
+        <span class="step-number">✓</span>
+        <span>Review</span>
+      </div>
+      <div class="progress-line completed-line"></div>
+      <div class="progress-step active">
+        <span class="step-number">03</span>
+        <span>Payment</span>
+      </div>
+      <div class="progress-line"></div>
+      <div class="progress-step">
+        <span class="step-number">04</span>
+        <span>Confirmation</span>
+      </div>
+    </div>
+
+    <div *ngIf="booking as b; else missingBooking" class="payment-layout">
+
+      <!-- Payment form -->
+      <main class="payment-main">
+        <section class="payment-card">
+          <div class="section-heading">
+            <span class="eyebrow">PAYMENT METHOD</span>
+            <h2>How would you like to pay?</h2>
+            <p>Choose one of the available payment methods.</p>
+          </div>
+
+          <div class="payment-methods">
+            <button
+              type="button"
+              class="method-option"
+              [class.selected]="paymentMethod === 'card'"
+              [attr.aria-pressed]="paymentMethod === 'card'"
+              (click)="setPaymentMethod('card')">
+              <span class="method-icon">▤</span>
+              <span class="method-text">
+                <strong>Credit / Debit Card</strong>
+                <small>Visa, Mastercard and other cards</small>
+              </span>
+              <span class="radio-indicator"></span>
+            </button>
+
+            <button
+              type="button"
+              class="method-option"
+              [class.selected]="paymentMethod === 'upi'"
+              [attr.aria-pressed]="paymentMethod === 'upi'"
+              (click)="setPaymentMethod('upi')">
+              <span class="method-icon">⌁</span>
+              <span class="method-text">
+                <strong>UPI</strong>
+                <small>Pay using a UPI ID</small>
+              </span>
+              <span class="radio-indicator"></span>
+            </button>
+
+            <button
+              type="button"
+              class="method-option"
+              [class.selected]="paymentMethod === 'netbanking'"
+              [attr.aria-pressed]="paymentMethod === 'netbanking'"
+              (click)="setPaymentMethod('netbanking')">
+              <span class="method-icon">▦</span>
+              <span class="method-text">
+                <strong>Net Banking</strong>
+                <small>Select your bank</small>
+              </span>
+              <span class="radio-indicator"></span>
+            </button>
+
+            <button
+              type="button"
+              class="method-option"
+              [class.selected]="paymentMethod === 'wallet'"
+              [attr.aria-pressed]="paymentMethod === 'wallet'"
+              (click)="setPaymentMethod('wallet')">
+              <span class="method-icon">▣</span>
+              <span class="method-text">
+                <strong>Digital Wallet</strong>
+                <small>Choose your preferred wallet</small>
+              </span>
+              <span class="radio-indicator"></span>
+            </button>
+          </div>
+
+          <!-- Card form -->
+          <div *ngIf="paymentMethod === 'card'" class="payment-fields">
+            <div class="form-field">
+              <label for="cardholderName">Cardholder Name</label>
+              <input
+                id="cardholderName"
+                name="cardholderName"
+                type="text"
+                [(ngModel)]="cardholderName"
+                placeholder="Name printed on card"
+                autocomplete="cc-name"
+              />
+            </div>
+
+            <div class="form-field">
+              <label for="cardNumber">Card Number</label>
+              <input
+                id="cardNumber"
+                name="cardNumber"
+                type="text"
+                inputmode="numeric"
+                [(ngModel)]="cardNumber"
+                (ngModelChange)="formatCardNumber()"
+                placeholder="1234 5678 9012 3456"
+                autocomplete="off"
+                maxlength="23"
+              />
+              <small> Do not enter invalid card details.</small>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-field">
+                <label for="expiryDate">Expiry Date</label>
+                <input
+                  id="expiryDate"
+                  name="expiryDate"
+                  type="text"
+                  [(ngModel)]="expiryDate"
+                  placeholder="MM/YY"
+                  maxlength="5"
+                  autocomplete="off"
+                />
+              </div>
+
+              <div class="form-field">
+                <label for="cvv">CVV</label>
+                <input
+                  id="cvv"
+                  name="cvv"
+                  type="password"
+                  [(ngModel)]="cvv"
+                  placeholder="123"
+                  inputmode="numeric"
+                  maxlength="4"
+                  autocomplete="off"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- UPI form -->
+          <div *ngIf="paymentMethod === 'upi'" class="payment-fields">
+            <div class="form-field">
+              <label for="upiId">UPI ID</label>
+              <input
+                id="upiId"
+                name="upiId"
+                type="text"
+                [(ngModel)]="upiId"
+                placeholder="yourname@bank"
+                autocomplete="off"
+              />
+              <small>Payment will be initiated.</small>
+            </div>
+          </div>
+
+          <!-- Net banking form -->
+          <div *ngIf="paymentMethod === 'netbanking'" class="payment-fields">
+            <div class="form-field">
+              <label for="bank">Select Bank</label>
+              <select id="bank" name="bank" [(ngModel)]="bank">
+                <option value="">Choose your bank</option>
+                <option value="SBI">State Bank of India</option>
+                <option value="HDFC">HDFC Bank</option>
+                <option value="ICICI">ICICI Bank</option>
+                <option value="Axis">Axis Bank</option>
+                <option value="Kotak">Kotak Mahindra Bank</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Wallet form -->
+          <div *ngIf="paymentMethod === 'wallet'" class="payment-fields">
+            <div class="form-field">
+              <label for="wallet">Select Wallet</label>
+              <select id="wallet" name="wallet" [(ngModel)]="wallet">
+                <option value="">Choose your wallet</option>
+                <option value="Paytm">Paytm</option>
+                <option value="PhonePe">PhonePe</option>
+                <option value="Amazon Pay">Amazon Pay</option>
+              </select>
+            </div>
+          </div>
+
+          <div *ngIf="errorMessage" class="error-message" role="alert">
+            {{ errorMessage }}
+          </div>
+
+          <div class="demo-notice">
+            <span class="notice-icon">i</span>
+            <p>
+              <strong>Demonstration payment</strong>
+              This interface does not charge your account or contact a bank.
+              Use fictional details only.
+            </p>
+          </div>
+
+          <button
+            type="button"
+            class="pay-button"
+            [disabled]="isProcessing || !booking"
+            (click)="payNow()">
+            <span>Pay ₹{{ totalAmount | number }}</span>
+            <span>→</span>
+          </button>
+
+          <p class="payment-footnote">
+            Payment will be processed.
+          </p>
+        </section>
+      </main>
+
+      <!-- Order summary -->
+      <aside class="order-summary">
+        <span class="eyebrow">YOUR RESERVATION</span>
+        <h2>Booking Summary</h2>
+
+        <div class="car-image">
+          <img [src]="b.carImage" [alt]="b.carName" />
+          <span class="year-badge">{{ b.carYear }}</span>
+        </div>
+
+        <h3>{{ b.carName }}</h3>
+        <p class="car-subtitle">Classic edition · {{ b.carYear }}</p>
+
+        <div class="summary-divider"></div>
+
+        <div class="summary-row">
+          <span>Pickup</span>
+          <strong>{{ formattedPickupDate }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Return</span>
+          <strong>{{ formattedReturnDate }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Pickup location</span>
+          <strong>{{ b.pickupLocation }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Daily rental</span>
+          <strong>₹{{ b.dailyRate | number }}</strong>
+        </div>
+
+        <div class="summary-row">
+          <span>Duration</span>
+          <strong>{{ b.duration }} days</strong>
+        </div>
+
+        <div class="total-box">
+          <span>Total rental amount</span>
+          <strong>₹{{ totalAmount | number }}</strong>
+          <small>Additional fees, if applicable, are not included.</small>
+        </div>
+      </aside>
+
+    </div>
+
+    <ng-template #missingBooking>
+      <div class="missing-booking">
+        <h2>Booking not found</h2>
+        <p>Please select a car and complete your booking details before proceeding to payment.</p>
+        <a routerLink="/collection" class="pay-button">
+          Return to Collection <span>→</span>
+        </a>
+      </div>
+    </ng-template>
+
+  </div>
+</section>

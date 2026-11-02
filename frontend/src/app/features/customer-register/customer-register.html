@@ -1,0 +1,90 @@
+
+<div class="register-page">
+  <div class="register-card">
+    <a routerLink="/" class="brand">REMEH</a>
+
+    <p class="eyebrow">REMEH CAR RENTAL</p>
+    <h1>Create Your Account</h1>
+    <p class="subtitle">
+      Create an account to make your next classic-car journey memorable.
+    </p>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <label for="fullName">Full name *</label>
+      <input
+        id="fullName"
+        type="text"
+        name="fullName"
+        [(ngModel)]="fullName"
+        placeholder="Enter your full name"
+        autocomplete="name"
+        maxlength="160"
+        required
+      />
+
+      <label for="email">Email address *</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        maxlength="254"
+        required
+      />
+
+      <label for="phone">Phone number</label>
+      <input
+        id="phone"
+        type="tel"
+        name="phone"
+        [(ngModel)]="phone"
+        placeholder="Enter your phone number (optional)"
+        autocomplete="tel"
+        maxlength="30"
+      />
+
+      <label for="password">Password *</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        placeholder="At least 8 characters"
+        autocomplete="new-password"
+        minlength="8"
+        maxlength="128"
+        required
+      />
+
+      <label for="confirmPassword">Confirm password *</label>
+      <input
+        id="confirmPassword"
+        type="password"
+        name="confirmPassword"
+        [(ngModel)]="confirmPassword"
+        placeholder="Enter your password again"
+        autocomplete="new-password"
+        required
+      />
+
+      <p *ngIf="errorMessage" class="error-message" role="alert">
+        {{ errorMessage }}
+      </p>
+
+      <p *ngIf="successMessage" class="success-message" role="status">
+        {{ successMessage }}
+      </p>
+
+      <button type="submit" [disabled]="isLoading || registerForm.invalid">
+        {{ isLoading ? 'Creating account...' : 'Create Account' }}
+      </button>
+    </form>
+
+    <p class="login-link">
+      Already have an account?
+      <a routerLink="/login">Sign in</a>
+    </p>
+  </div>
+</div>

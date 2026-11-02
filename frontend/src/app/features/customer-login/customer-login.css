@@ -1,0 +1,164 @@
+
+:host {
+  display: block;
+  min-height: 100%;
+}
+
+.login-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+
+  background-color: transparent;
+  background-image:
+    
+    url('/images/login-bg.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 600px) {
+  .login-page {
+    padding: 28px 16px;
+    background-attachment: scroll;
+  }
+}
+
+
+.login-card {
+  width: 100%;
+  max-width: 630px;
+  padding: 40px;
+  background: #ffffff;
+  border: 1px solid #e6e8ec;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgb(6 30 64 / 8%);
+}
+
+.brand {
+  display: inline-block;
+  margin-bottom: 28px;
+  color: #061e40;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0 0 8px;
+  color: #061e40;
+  font-size: 30px;
+}
+
+.subtitle {
+  margin: 0 0 28px;
+  color: #697386;
+  line-height: 1.6;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin: 0 0 8px;
+  color: #263449;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  padding: 13px 14px;
+  border: 1px solid #d8dde5;
+  border-radius: 7px;
+  outline: none;
+  font: inherit;
+}
+
+input:focus {
+  border-color: #2678f3;
+  box-shadow: 0 0 0 3px rgb(38 120 243 / 12%);
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 7px;
+  background: #061e40;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.error-message {
+  margin: 0 0 16px;
+  color: #b42318;
+  font-size: 14px;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 24px 0;
+  color: #8992a2;
+  font-size: 12px;
+}
+
+.divider::before,
+.divider::after {
+  flex: 1;
+  height: 1px;
+  background: #e5e7eb;
+  content: "";
+}
+
+.google-button {
+  border: 1px solid #d8dde5;
+  background: #ffffff;
+  color: #263449;
+}
+
+.register-link {
+  margin: 24px 0 0;
+  color: #697386;
+  text-align: center;
+  font-size: 14px;
+}
+
+.register-link a {
+  color: #2678f3;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 28px 16px;
+  }
+
+  .login-card {
+    padding: 28px 22px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+}

@@ -1,0 +1,501 @@
+
+:host {
+  display: block;
+  color: #061e40;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Main page with vintage car background */
+
+.confirm-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 42px 24px 76px;
+
+  background-color: tranparent;
+  background-image:
+  
+    url('/images/vintage-booking-bg.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.confirm-container {
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+/* Navigation */
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 34px;
+  color: #63748b;
+  font-size: 20px;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.back-link span {
+  color: #2678f3;
+  font-size: 30px;
+}
+
+.back-link:hover {
+  color: #2678f3;
+}
+
+/* Page heading */
+
+.page-heading {
+  margin-bottom: 32px;
+}
+
+.eyebrow {
+  display: block;
+  color: #2678f3;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+}
+
+.page-heading h1 {
+  margin: 12px 0 10px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(34px, 4vw, 46px);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.page-heading p {
+  margin: 0;
+  color: #100542;
+  font-size: 20px;
+  line-height: 1.7;
+}
+
+/* Main columns */
+
+.confirm-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(310px, 0.8fr);
+  align-items: start;
+  gap: 26px;
+}
+
+.booking-main {
+  display: grid;
+  min-width: 0;
+  gap: 22px;
+}
+
+.vehicle-card,
+.trip-card,
+.price-card,
+.empty-state {
+  overflow: hidden;
+  border: 1px solid #dfe6f0;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0 6px 24px rgb(6 30 64 / 7%);
+}
+
+/* Selected vehicle */
+
+.vehicle-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.85fr);
+  min-height: 260px;
+}
+
+.vehicle-image {
+  position: relative;
+  display: flex;
+  min-height: 250px;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px;
+  background: #e8edf5;
+}
+
+.vehicle-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  object-position: center;
+}
+
+.year-badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 8px 11px;
+  border-radius: 5px;
+  background: #061e40;
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.vehicle-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 25px;
+}
+
+.vehicle-info h2 {
+  margin: 13px 0 8px;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(22px, 2.3vw, 29px);
+  font-weight: 500;
+  line-height: 1.25;
+}
+
+.vehicle-info > p {
+  margin: 0 0 22px;
+  color: #78879a;
+  font-size: 20px;
+}
+
+.vehicle-rate {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-top: 17px;
+  border-top: 1px solid #e7edf5;
+}
+
+.vehicle-rate span {
+  color: #78879a;
+  font-size: 17px;
+}
+
+.vehicle-rate strong {
+  color: #061e40;
+  font-size: 25px;
+}
+
+/* Rental details */
+
+.trip-card {
+  padding: 26px;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 18px;
+}
+
+.section-title h2,
+.price-card h2 {
+  margin: 9px 0 0;
+  color: #061e40;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.trip-days {
+  padding: 8px 11px;
+  border: 1px solid #d7e6ff;
+  border-radius: 6px;
+  background: #edf4ff;
+  color: #1766df;
+  font-size: 20px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.detail-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 22px;
+  padding: 16px 0;
+  border-bottom: 1px solid #edf1f6;
+}
+
+.detail-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.detail-row span {
+  flex-shrink: 0;
+  color: #748399;
+  font-size: 17px;
+}
+
+.detail-row strong {
+  max-width: 65%;
+  color: #1b304d;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.6;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+/* Price summary */
+
+.price-card {
+  position: sticky;
+  top: 20px;
+  padding: 27px;
+}
+
+.summary-description {
+  margin: 10px 0 23px;
+  color: #78879a;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.price-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #edf1f6;
+  font-size: 17px;
+}
+
+.price-row span {
+  color: #6d7d92;
+}
+
+.price-row strong {
+  color: #1b304d;
+  text-align: right;
+}
+
+.muted-row strong {
+  color: #8a96a7;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.total-row {
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid #dce8fb;
+  border-radius: 9px;
+  background: #f1f6ff;
+}
+
+.total-row > span {
+  display: block;
+  color: #526780;
+  font-size: 17px;
+}
+
+.total-row > strong {
+  display: block;
+  margin: 10px 0;
+  color: #061e40;
+  font-size: 32px;
+  letter-spacing: -0.6px;
+}
+
+.total-row small {
+  display: block;
+  color: #71839a;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+/* Buttons */
+
+.primary-button,
+.secondary-button {
+  display: flex;
+  width: 100%;
+  min-height: 47px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 13px 15px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.primary-button {
+  background: #2678f3;
+  color: #ffffff;
+}
+
+.primary-button:hover:not(:disabled) {
+  border-color: #061e40;
+  background: #061e40;
+}
+
+.primary-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.secondary-button {
+  justify-content: center;
+  margin-top: 11px;
+  border-color: #d6e0ed;
+  background: #ffffff;
+  color: #304763;
+}
+
+.secondary-button:hover {
+  border-color: #2678f3;
+  background: #f1f6ff;
+  color: #1766df;
+}
+
+.secure-note {
+  margin: 17px 0 0;
+  color: #8794a5;
+  font-size: 17px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Missing booking */
+
+.empty-state {
+  max-width: 650px;
+  margin: 20px auto;
+  padding: 45px 28px;
+  text-align: center;
+}
+
+.empty-icon {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: #edf4ff;
+  color: #2678f3;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.empty-state h2 {
+  margin: 0 0 12px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 27px;
+  font-weight: 500;
+}
+
+.empty-state p {
+  margin: 0 auto 20px;
+  color: #6d7d92;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.empty-state .primary-button {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+/* Tablet */
+
+@media (max-width: 950px) {
+  .confirm-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .price-card {
+    position: static;
+  }
+
+  .vehicle-card {
+    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 560px) {
+  .confirm-page {
+    padding: 25px 15px 45px;
+    background-attachment: scroll;
+  }
+
+  .page-heading {
+    margin-bottom: 23px;
+  }
+
+  .page-heading h1 {
+    font-size: 34px;
+  }
+
+  .vehicle-card {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .vehicle-image {
+    min-height: 220px;
+    height: 250px;
+  }
+
+  .vehicle-info {
+    padding: 22px;
+  }
+
+  .trip-card,
+  .price-card {
+    padding: 21px;
+  }
+
+  .detail-row {
+    gap: 12px;
+  }
+
+  .detail-row span {
+    max-width: 40%;
+    line-height: 1.6;
+  }
+
+  .detail-row strong {
+    max-width: 60%;
+  }
+
+  .section-title h2,
+  .price-card h2 {
+    font-size: 23px;
+  }
+
+  .total-row > strong {
+    font-size: 28px;
+  }
+}

@@ -1,0 +1,431 @@
+
+
+:host {
+  display: block;
+  min-height: 90vh;
+  color: #17243a;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.confirmation-page {
+  min-height: 90vh;
+  padding: 42px 24px 76px;
+
+  background-color: transparent;
+  background-image:
+    
+    url('/images/confirmation-bg.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+@media (max-width: 560px) {
+  .confirmation-page {
+    padding: 25px 15px 45px;
+    background-attachment: scroll;
+  }
+}
+
+.confirmation-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.success-section {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.success-icon {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: #e1f8ec;
+  border: 1px solid #b9efd0;
+  color: #16834d;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.eyebrow,
+.section-label {
+  margin: 0 0 10px;
+  color: #2678f3;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.success-section h1 {
+  margin: 0;
+  color: #061e40;
+  font-size: clamp(30px, 5vw, 43px);
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.success-message {
+  margin: 14px 0 22px;
+  color: #8e0707;
+  font-size: 25px;
+  line-height: 1.7;
+}
+
+.booking-reference {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 13px 24px;
+  border: 1px dashed #a8c7fa;
+  border-radius: 10px;
+  background: #edf4ff;
+}
+
+.booking-reference span {
+  color: #687a95;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.booking-reference strong {
+  color: #1459bb;
+  font-size: 19px;
+  letter-spacing: 1px;
+}
+
+.confirmation-card {
+  overflow: hidden;
+  padding: 32px;
+  border: 1px solid #e4eaf3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 15px 45px rgba(6, 30, 64, 0.07);
+}
+
+.card-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.section-label {
+  margin-bottom: 7px;
+}
+
+.card-heading h2 {
+  margin: 0;
+  color: #061e40;
+  font-size: 24px;
+}
+
+.status-badge {
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #e9f8ef;
+  color: #197748;
+  font-size: 17px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.vehicle-section {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  padding: 20px;
+  border-radius: 13px;
+  background: #f5f8fd;
+}
+
+.vehicle-image {
+  flex-shrink: 0;
+  width: 180px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #e5ebf4;
+}
+
+.vehicle-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vehicle-year {
+  color: #2678f3;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.vehicle-info h3 {
+  margin: 8px 0;
+  color: #061e40;
+  font-size: 23px;
+}
+
+.vehicle-info p {
+  margin: 0;
+  color: #7a8799;
+  font-size: 20px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px 20px;
+  padding: 28px 4px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.detail-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  background: #edf4ff;
+  color: #2678f3;
+  font-size: 25px;
+}
+
+.detail-item > div {
+  min-width: 0;
+}
+
+.detail-label {
+  display: block;
+  margin-bottom: 7px;
+  color: #7b8798;
+  font-size: 20px;
+}
+
+.detail-item strong {
+  display: block;
+  overflow-wrap: anywhere;
+  color: #14243c;
+  font-size: 20px;
+}
+
+.divider {
+  height: 1px;
+  background: #e8edf4;
+}
+
+.customer-section {
+  padding: 25px 0;
+}
+
+.customer-section h3 {
+  margin: 0 0 20px;
+  color: #061e40;
+  font-size: 20px;
+}
+
+.customer-row,
+.payment-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 16px;
+  font-size: 18px;
+}
+
+.customer-row:last-child {
+  margin-bottom: 0;
+}
+
+.customer-row span,
+.payment-row span {
+  color: #788599;
+}
+
+.customer-row strong,
+.payment-row strong {
+  max-width: 60%;
+  color: #17243a;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.payment-summary {
+  padding: 22px 20px 5px;
+  border-radius: 12px;
+  background: #f6f8fc;
+}
+
+.demo-status {
+  color: #9a6411 !important;
+}
+
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin: 10px -20px 0;
+  padding: 20px;
+  border-top: 1px solid #e2e8f1;
+}
+
+.total-row span {
+  color: #061e40;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.total-row strong {
+  color: #145fc7;
+  font-size: 23px;
+  white-space: nowrap;
+}
+
+.demo-notice {
+  margin-top: 20px;
+  padding: 16px 18px;
+  border: 1px solid #f1dfb4;
+  border-radius: 10px;
+  background: #fff9e9;
+}
+
+.demo-notice strong {
+  color: #8b6419;
+  font-size: 17px;
+}
+
+.demo-notice p {
+  margin: 7px 0 0;
+  color: #786b4e;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.confirmation-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 28px;
+}
+
+.primary-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  max-width: 350px;
+  min-height: 52px;
+  padding: 14px 22px;
+  border: none;
+  border-radius: 9px;
+  background: #061e40;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.primary-button:hover {
+  background: #2678f3;
+  transform: translateY(-2px);
+}
+
+.primary-button span {
+  font-size: 25px;
+}
+
+.home-link {
+  color: #11c43d;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.home-link:hover {
+  text-decoration: underline;
+}
+
+.footer-note {
+  margin: 35px 0 0;
+  color: #a8e10c;
+  font-size: 25px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .confirmation-page {
+    padding: 35px 14px;
+  }
+
+  .confirmation-card {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .card-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .vehicle-section {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+    padding: 14px;
+  }
+
+  .vehicle-image {
+    width: 100%;
+    height: 185px;
+  }
+
+  .vehicle-info h3 {
+    font-size: 21px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .customer-row,
+  .payment-row {
+    font-size: 12px;
+  }
+
+  .total-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .total-row strong {
+    font-size: 22px;
+  }
+}

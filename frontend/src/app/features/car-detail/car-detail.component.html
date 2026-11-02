@@ -1,0 +1,160 @@
+
+<section class="detail-page" *ngIf="car as selectedCar; else notFound">
+  <div class="detail-container">
+    <a class="back-link" routerLink="/collection">
+      <span aria-hidden="true">←</span>
+      Back to Collection
+    </a>
+
+    <div class="detail-heading">
+      <div>
+        <span class="eyebrow">REMEH CLASSIC COLLECTION</span>
+        <h1>{{ selectedCar.name }}</h1>
+        <p class="subtitle">
+          {{ selectedCar.category }} <span>•</span> {{ selectedCar.year }}
+        </p>
+      </div>
+
+      <div class="price-panel">
+        <span>DAILY RENTAL</span>
+        <strong>{{ selectedCar.price | currency:'INR':'symbol':'1.0-0' }}</strong>
+        <small>per day</small>
+      </div>
+    </div>
+
+    <div class="detail-layout">
+      <div class="gallery-column">
+        <div class="main-image">
+          <img
+            [src]="selectedCar.image"
+            [alt]="selectedCar.name"
+            (error)="handleImageError($event)"
+          />
+
+          <span class="image-year">{{ selectedCar.year }}</span>
+          <span class="image-caption">THE REMEH EDITION</span>
+        </div>
+
+        <div class="gallery-caption">
+          <span>01 / 01</span>
+          <span>CLASSIC AUTOMOBILES</span>
+        </div>
+      </div>
+
+      <aside class="specification-panel">
+        <span class="panel-eyebrow">VEHICLE OVERVIEW</span>
+        <h2>Details at a glance</h2>
+        <p class="panel-description">
+          Discover the character and details of this timeless automobile.
+        </p>
+
+        <div class="spec-row">
+          <span class="spec-icon">◉</span>
+          <div>
+            <small>MODEL YEAR</small>
+            <strong>{{ selectedCar.year }}</strong>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-icon">♙</span>
+          <div>
+            <small>SEATING CAPACITY</small>
+            <strong>{{ selectedCar.seats }} seats</strong>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-icon">⚙</span>
+          <div>
+            <small>TRANSMISSION</small>
+            <strong>{{ selectedCar.transmission }}</strong>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-icon">⛽</span>
+          <div>
+            <small>FUEL TYPE</small>
+            <strong>{{ selectedCar.fuel }}</strong>
+          </div>
+        </div>
+
+        <div class="spec-row">
+          <span class="spec-icon">▰</span>
+          <div>
+            <small>BODY STYLE</small>
+            <strong>{{ selectedCar.bodyStyle }}</strong>
+          </div>
+        </div>
+
+        <div class="panel-price">
+          <div>
+            <small>YOUR DAILY RATE</small>
+            <strong>{{ selectedCar.price | currency:'INR':'symbol':'1.0-0' }}</strong>
+          </div>
+          <span> / day</span>
+        </div>
+
+        <button class="select-button" type="button" (click)="selectCar()">
+          Select This Car <span aria-hidden="true">↗</span>
+        </button>
+      </aside>
+    </div>
+
+    <section class="description-section">
+      <div class="description-heading">
+        <span class="eyebrow">THE STORY</span>
+        <h2>About this classic</h2>
+      </div>
+
+      <div class="description-content">
+        <p>{{ selectedCar.description }}</p>
+
+        <div class="description-tags">
+          <span>{{ selectedCar.category }}</span>
+          <span>{{ selectedCar.year }} model</span>
+          <span>{{ selectedCar.bodyStyle }}</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="detail-actions">
+      <div class="compare-copy">
+        <strong>Building your dream drive?</strong>
+        <span>Keep this classic on your shortlist.</span>
+      </div>
+
+      <div class="action-buttons">
+        <button
+          type="button"
+          class="compare-button"
+          [class.compared]="isCompared"
+          [attr.aria-pressed]="isCompared"
+          (click)="toggleCompare()"
+        >
+          {{ isCompared ? '✓ Added to Compare' : '+ Add to Compare' }}
+        </button>
+
+        <button
+          type="button"
+          class="select-button action-select"
+          (click)="selectCar()"
+        >
+          Select Car <span aria-hidden="true">↗</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<ng-template #notFound>
+  <section class="not-found">
+    <span class="eyebrow">REMEH CLASSIC COLLECTION</span>
+    <h1>Car not found</h1>
+    <p>We couldn't find that vehicle in our current collection.</p>
+    <a routerLink="/collection" class="select-button">
+      Back to Collection
+    </a>
+  </section>
+</ng-template>

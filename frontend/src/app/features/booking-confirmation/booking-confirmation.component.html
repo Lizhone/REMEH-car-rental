@@ -1,0 +1,150 @@
+<div class="confirmation-page" *ngIf="confirmation as booking">
+  <div class="confirmation-container">
+
+    <div class="success-section">
+      <div class="success-icon">✓</div>
+
+      <p class="eyebrow">REMEH CLASSIC CAR RENTALS</p>
+      <h1>Booking Confirmed!</h1>
+
+      <p class="success-message">
+        Thank you, {{ booking.fullName }}. Your booking details are ready.
+      </p>
+
+      <div class="booking-reference">
+        <span>BOOKING REFERENCE</span>
+        <strong>{{ booking.bookingId }}</strong>
+      </div>
+    </div>
+
+    <div class="confirmation-card">
+
+      <div class="card-heading">
+        <div>
+          <p class="section-label">YOUR RESERVATION</p>
+          <h2>Booking Summary</h2>
+        </div>
+
+        <span class="status-badge">Confirmed </span>
+      </div>
+
+      <div class="vehicle-section">
+        <div class="vehicle-image">
+          <img
+            [src]="booking.carImage"
+            [alt]="booking.carName"
+          />
+        </div>
+
+        <div class="vehicle-info">
+          <span class="vehicle-year">{{ booking.carYear }}</span>
+          <h3>{{ booking.carName }}</h3>
+          <p>Vintage driving experience</p>
+        </div>
+      </div>
+
+      <div class="details-grid">
+
+        <div class="detail-item">
+          <span class="detail-icon">↗</span>
+          <div>
+            <span class="detail-label">Pick-up Date</span>
+            <strong>{{ formattedPickupDate }}</strong>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon">↙</span>
+          <div>
+            <span class="detail-label">Return Date</span>
+            <strong>{{ formattedReturnDate }}</strong>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon">⌖</span>
+          <div>
+            <span class="detail-label">Pick-up Location</span>
+            <strong>{{ booking.pickupLocation }}</strong>
+          </div>
+        </div>
+
+        <div class="detail-item">
+          <span class="detail-icon">◷</span>
+          <div>
+            <span class="detail-label">Rental Duration</span>
+            <strong>
+              {{ booking.duration }}
+              {{ booking.duration === 1 ? 'day' : 'days' }}
+            </strong>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="customer-section">
+        <h3>Customer Information</h3>
+
+        <div class="customer-row">
+          <span>Full Name</span>
+          <strong>{{ booking.fullName }}</strong>
+        </div>
+
+        <div class="customer-row">
+          <span>Email Address</span>
+          <strong>{{ booking.email }}</strong>
+        </div>
+
+        <div class="customer-row">
+          <span>Booking Date</span>
+          <strong>{{ formattedBookingDate }}</strong>
+        </div>
+      </div>
+
+      <div class="payment-summary">
+
+        <div class="payment-row">
+          <span>Payment Method</span>
+          <strong>{{ paymentMethodLabel }}</strong>
+        </div>
+
+       <div class="payment-row">
+  <span>Payment Status</span>
+  <strong class="status">Not charged</strong>
+</div>
+
+        <div class="total-row">
+          <span>Total Rental Amount</span>
+          <strong>
+            {{ booking.rentalTotal | currency:'INR':'symbol':'1.0-0' }}
+          </strong>
+        </div>
+
+      </div>
+
+      <div class="demo-notice">
+        <strong>Booking info</strong>
+        <p>
+          This is a frontend demonstration. No real payment has been
+          processed, and no reservation has been submitted to a rental service.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="confirmation-actions">
+      <button class="primary-button" (click)="startNewBooking()">
+        Book Another Classic Car <span>→</span>
+      </button>
+
+      <a routerLink="/" class="home-link">Return to Home</a>
+    </div>
+
+    <p class="footer-note">
+      Thank you for choosing REMEH. Make every journey timeless.
+    </p>
+
+  </div>
+</div>
